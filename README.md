@@ -1,4 +1,4 @@
-# node-red-contrib-kepware-iotgatewy
+# node-red-contrib-kepware-iotgateway
 
 This repository contains two nodes for Node-RED, allowing users to perform read and write operations to the Kepware IoT Gateway using its REST API.
 
