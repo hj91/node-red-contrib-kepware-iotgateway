@@ -1,0 +1,383 @@
+[
+    {
+        "id": "e37f24da.20ffe8",
+        "type": "tab",
+        "label": "REST API",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "df7a2128.c1d97",
+        "type": "inject",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "dccf286b.e02bc8",
+                "6bd04a18.5d4f34",
+                "d9e4df8a.3c507"
+            ]
+        ]
+    },
+    {
+        "id": "dccf286b.e02bc8",
+        "type": "http request",
+        "z": "e37f24da.20ffe8",
+        "name": "Tank1",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.9:39320/iotgateway/read?ids=Painting.Tank.Tank1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 425,
+        "y": 287,
+        "wires": [
+            [
+                "1d41e95f4a6bd904"
+            ]
+        ]
+    },
+    {
+        "id": "3dbbe77a.b97e48",
+        "type": "debug",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 877,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6bd04a18.5d4f34",
+        "type": "http request",
+        "z": "e37f24da.20ffe8",
+        "name": "Tank2",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.9:39320/iotgateway/read?ids=Painting.Tank.Tank2",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 415,
+        "y": 340,
+        "wires": [
+            [
+                "ae9a19db6c3e478f"
+            ]
+        ]
+    },
+    {
+        "id": "854d06ee.faa3e8",
+        "type": "debug",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 870,
+        "y": 342,
+        "wires": []
+    },
+    {
+        "id": "d9e4df8a.3c507",
+        "type": "http request",
+        "z": "e37f24da.20ffe8",
+        "name": "Tank3",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.9:39320/iotgateway/read?ids=Painting.Tank.Tank3",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 426,
+        "y": 403,
+        "wires": [
+            [
+                "7d93a0de5b59957f"
+            ]
+        ]
+    },
+    {
+        "id": "953153ba.5f1d8",
+        "type": "debug",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 870,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "64696a45.640b74",
+        "type": "inject",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Painting.Write.Write",
+        "payload": "20",
+        "payloadType": "num",
+        "x": 259,
+        "y": 572,
+        "wires": [
+            [
+                "fbd5bba1507bb5ed"
+            ]
+        ]
+    },
+    {
+        "id": "375a4d6.daa94b2",
+        "type": "debug",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 980,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "d502fb64.6709f8",
+        "type": "http request",
+        "z": "e37f24da.20ffe8",
+        "name": "Read OPCUA tag value",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.9:39320/iotgateway/read?ids=Painting.write.Write",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 530,
+        "y": 760,
+        "wires": [
+            [
+                "8087bc1144216994"
+            ]
+        ]
+    },
+    {
+        "id": "39b0c18f.ca8b7e",
+        "type": "inject",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "repeat": "10",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 211,
+        "y": 754,
+        "wires": [
+            [
+                "d502fb64.6709f8"
+            ]
+        ]
+    },
+    {
+        "id": "a850dd10.3616b",
+        "type": "debug",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1010,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c54ef4a9.97f2e8",
+        "type": "inject",
+        "z": "e37f24da.20ffe8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Painting.Write.Write",
+        "payload": "30",
+        "payloadType": "num",
+        "x": 254,
+        "y": 638,
+        "wires": [
+            [
+                "fbd5bba1507bb5ed"
+            ]
+        ]
+    },
+    {
+        "id": "2f721485.a8a51c",
+        "type": "comment",
+        "z": "e37f24da.20ffe8",
+        "name": "Example of READ value from opcua tag using REST API",
+        "info": "Reads a value from kepware REST server",
+        "x": 343,
+        "y": 161,
+        "wires": []
+    },
+    {
+        "id": "8bce72c4.5a018",
+        "type": "comment",
+        "z": "e37f24da.20ffe8",
+        "name": "Example of WRITE value to opcua tag using REST API",
+        "info": "Write a value to kepware tag using REST server",
+        "x": 311,
+        "y": 498,
+        "wires": []
+    },
+    {
+        "id": "dc1b98f1.733df8",
+        "type": "comment",
+        "z": "e37f24da.20ffe8",
+        "name": "Read value from above tag written using flow",
+        "info": "Reads a value from kepware REST server",
+        "x": 286,
+        "y": 698,
+        "wires": []
+    },
+    {
+        "id": "1d41e95f4a6bd904",
+        "type": "kepware-read",
+        "z": "e37f24da.20ffe8",
+        "name": "Kepware Read",
+        "x": 640,
+        "y": 280,
+        "wires": [
+            [
+                "3dbbe77a.b97e48"
+            ]
+        ]
+    },
+    {
+        "id": "ae9a19db6c3e478f",
+        "type": "kepware-read",
+        "z": "e37f24da.20ffe8",
+        "name": "Kepware Read",
+        "x": 640,
+        "y": 340,
+        "wires": [
+            [
+                "854d06ee.faa3e8"
+            ]
+        ]
+    },
+    {
+        "id": "7d93a0de5b59957f",
+        "type": "kepware-read",
+        "z": "e37f24da.20ffe8",
+        "name": "Kepware Read",
+        "x": 640,
+        "y": 400,
+        "wires": [
+            [
+                "953153ba.5f1d8"
+            ]
+        ]
+    },
+    {
+        "id": "fbd5bba1507bb5ed",
+        "type": "kepware-write",
+        "z": "e37f24da.20ffe8",
+        "name": "Kepware Write",
+        "x": 520,
+        "y": 620,
+        "wires": [
+            [
+                "dac5c9bf.db6898"
+            ]
+        ]
+    },
+    {
+        "id": "dac5c9bf.db6898",
+        "type": "http request",
+        "z": "e37f24da.20ffe8",
+        "name": "Write",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "query",
+        "url": "http://192.168.1.9:39320/iotgateway/write",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 710,
+        "y": 620,
+        "wires": [
+            [
+                "375a4d6.daa94b2"
+            ]
+        ]
+    },
+    {
+        "id": "8087bc1144216994",
+        "type": "kepware-read",
+        "z": "e37f24da.20ffe8",
+        "name": "Kepware Read",
+        "x": 780,
+        "y": 760,
+        "wires": [
+            [
+                "a850dd10.3616b"
+            ]
+        ]
+    }
+]
